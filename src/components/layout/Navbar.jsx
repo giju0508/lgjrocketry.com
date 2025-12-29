@@ -2,28 +2,46 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const location = useLocation(); // 현재 경로 확인용
+  const location = useLocation();
 
-  // 현재 페이지면 흰색, 아니면 회색으로 보이게 하는 함수
-  const getLinkClass = (path) => 
-    location.pathname === path ? "text-white" : "hover:text-white transition-colors";
+  // 현재 경로일 때는 주황색(orange-500), 아니면 회색으로!
+  // font-bold를 제거해서 굵기를 일정하게 맞췄어!
+  const getLinkClass = (path) =>
+    location.pathname === path
+      ? "text-orange-500 transition-colors"
+      : "text-gray-400 hover:text-white transition-colors";
 
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-[600px]">
-      <div className="flex items-center justify-between px-6 py-3 rounded-full bg-black/50 backdrop-blur-md border border-white/10 shadow-lg transition-all hover:border-white/20">
-        
-        {/* 로고 */}
-        <Link to="/" className="text-lg font-bold flex items-center gap-2 text-white hover:text-purple-400 transition-colors">
-          <span className="text-xl">🚀</span>
-          <span>LGJ Rocketry</span>
-        </Link>
+      {/* 테두리 그라데이션은 유지해서 고급스러움을 살렸어! */}
+      <div className="rounded-full p-[1px] bg-gradient-to-r from-orange-500/40 via-red-600/40 to-orange-400/90 shadow-lg">
+        <div className="flex items-center justify-between px-6 py-3 rounded-full bg-black/80 backdrop-blur-xl">
+          {/* 로고 섹션 */}
+          <Link
+            to="/"
+            className="text-lg font-bold flex items-center gap-2 text-white group"
+          >
+            <span className="text-xl">🚀</span>
+            <span className="group-hover:text-orange-500 transition-colors">
+              LGJ Rocketry
+            </span>
+          </Link>
 
-        {/* 메뉴 링크 (멀티 페이지 방식) */}
-        <div className="flex items-center gap-6 text-sm font-medium text-gray-300">
-          <Link to="/" className={getLinkClass("/")}>Home</Link>
-          <Link to="/about" className={getLinkClass("/about")}>About</Link>
-          <Link to="/projects" className={getLinkClass("/projects")}>Projects</Link>
-          <Link to="/contact" className={getLinkClass("/contact")}>Contact</Link>
+          {/* 메뉴 링크: 굵기는 font-medium으로 통일! */}
+          <div className="flex items-center gap-6 text-sm font-medium">
+            <Link to="/" className={getLinkClass("/")}>
+              Home
+            </Link>
+            <Link to="/about" className={getLinkClass("/about")}>
+              About
+            </Link>
+            <Link to="/projects" className={getLinkClass("/projects")}>
+              Projects
+            </Link>
+            <Link to="/contact" className={getLinkClass("/contact")}>
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
