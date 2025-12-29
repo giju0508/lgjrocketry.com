@@ -16,14 +16,19 @@ export const contactData = {
   // 2. socials 배열에 'icon' 컴포넌트를 추가했어!
   socials: [
     {
-      name: "GitHub",
-      url: "https://github.com/giju0508",
-      icon: RiGithubFill, // 아이콘 컴포넌트 자체를 저장
+      name: "Instagram: Main",
+      url: "https://www.instagram.com/2giju",
+      icon: RiInstagramFill,
     },
     {
-      name: "Instagram",
+      name: "Instagram: Rocketry",
       url: "https://instagram.com/lgj_rocketry",
       icon: RiInstagramFill,
+    },
+    {
+      name: "Linkedin",
+      url: "https://www.linkedin.com/in/giju-lee-08a721342/",
+      icon: RiLinkedinBoxFill, // 아이콘 컴포넌트 자체를 저장
     },
     // 필요하다면 이메일도 타일로 추가 가능!
     // {

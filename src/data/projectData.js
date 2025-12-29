@@ -6,14 +6,17 @@ export const projects = [
     role: "Team Leader & Propulsion Module Developent", // 역할 추가
     year: "2023",
     images: [
-      "/images/nalda_2_main.jpg",
-      "/images/nalda_2_sub1.jpg",
-      "/images/nalda_2_launch.jpg",
+      "images\\nalda2\\nalda2_main.png",
+      "images\\nalda2\\nalda2_rocket.jpg",
+      "images\\nalda2\\nalda2_srm.jpg",
+      "images\\nalda2\\nalda2_rocket_modeling.png",
+      "images\\nalda2\\nalda2_rocket_motor_modeling.png",
+      "images\\nalda2\\nadla2_grain_manufacturing.jpg"
     ],
     description:
       "- My First Rocket Engine Test & Flight\n" +
       "- Sounding Rocket with I Class KNSB Motor\n" +
-      "- A thrilling flight test\n",
+      "- A thrilling flight test (Don't try this at home)\n",
 
     // ★ 여기가 핵심! 태그 리스트
     tags: ["Solid Rocket Motor", "KNSB Propellant", "Sounding Rocket"],
