@@ -1,5 +1,5 @@
 export const heroData = {
-  status: "Ready for Liftoff 🚀", // 상태 메시지 변경
+  status: "Ready for Liftoff", // 상태 메시지 변경
   role: "Rocket Propulsion Engineer",
   name: "LEE GIJU",
   subTitle: "Rocket Engine System Development", // 대문자로 강조

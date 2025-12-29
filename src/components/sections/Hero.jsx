@@ -37,8 +37,9 @@ const Hero = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
           </span>
           <span className="text-xs font-medium text-gray-300 tracking-wide uppercase">
-            {heroData.status}
+            {heroData.status}{" "}
           </span>
+          <img src="/LGJLogo.png" alt="Rocket Icon" className="-ml-1 w-5 h-5" />
         </div>
 
         {/* 메인 타이포그래피 */}
@@ -68,7 +69,7 @@ const Hero = () => {
                        hover:bg-orange-50 transition-all transform hover:-translate-y-1 
                        shadow-lg hover:shadow-orange-500/20"
           >
-            {heroData.ctaMain} 🚀
+            {heroData.ctaMain}
           </Link>
           <Link
             to="/contact"
