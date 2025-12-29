@@ -4,7 +4,7 @@ import {
   RiGithubFill,
   RiLinkedinBoxFill,
   RiTwitterXFill,
-  RiMailSendFill,
+  RiInstagramFill,
 } from "react-icons/ri";
 
 export const contactData = {
@@ -21,14 +21,9 @@ export const contactData = {
       icon: RiGithubFill, // 아이콘 컴포넌트 자체를 저장
     },
     {
-      name: "LinkedIn",
-      url: "https://linkedin.com/in/yourid",
-      icon: RiLinkedinBoxFill,
-    },
-    {
-      name: "X (Twitter)",
-      url: "https://twitter.com/yourid",
-      icon: RiTwitterXFill,
+      name: "Instagram",
+      url: "https://instagram.com/yourid",
+      icon: RiInstagramFill,
     },
     // 필요하다면 이메일도 타일로 추가 가능!
     // {
