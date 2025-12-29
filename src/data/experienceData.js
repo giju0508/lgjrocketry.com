@@ -14,7 +14,7 @@ export const experiences = [
     role: "아주대학교 학부생",
     company: "아주대학교",
     period: "Mar 2024 — Present",
-    description: "아주대학교 국방디지털융합학과 10기 재학 중입니다.",
+    description: "아주대학교 국방디지털융합학과 10기 재학 중 입니다.",
     color: "text-blue-400",
   },
   {
@@ -39,7 +39,7 @@ export const experiences = [
     id: 5,
     role: "Propulsion Engineer & Additive Manufacturing Engineer",
     company: "VF Space",
-    period: "Feb 2024 — Dec 2024",
+    period: "Aug 2024 — Dec 2024",
     description:
       "VF Space에서 3kN LOX/Kerosene 연소기 개발 및 WLAM Metal 3D Printer 운용·시험을 담당했습니다.",
     color: "text-blue-400",
