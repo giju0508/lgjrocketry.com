@@ -3,10 +3,10 @@
 import { RiGithubFill, RiLinkedinBoxFill, RiTwitterXFill, RiMailSendFill } from "react-icons/ri";
 
 export const contactData = {
-  title: "Get in Touch",
+  title: "Contact Me!",
   subtitle: "Let's build something awesome together.",
-  description: "I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
-  email: "me@slgjlgjg.com",
+  description: "Phone: 82+ 10-7109-0397",
+  email: "giju0508@gmail.com",
   
   // 2. socials 배열에 'icon' 컴포넌트를 추가했어!
   socials: [

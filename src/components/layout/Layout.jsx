@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
       </div>
       
       <footer className="mt-24 pb-12 text-gray-500 text-sm text-center border-t border-gray-900 pt-8">
-        © 2024 LGJ Rocketry. All Rights Reserved.
+        © 2026 LGJ Rocketry. All Rights Reserved.
       </footer>
     </div>
   );
