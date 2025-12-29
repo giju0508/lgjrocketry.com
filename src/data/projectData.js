@@ -1,6 +1,6 @@
 export const projects = [
   {
-    id: "SRM",
+    id: "nalda2",
     title: "NALDA - 2",
     category: "600m-Class Sounding Rocket",
     role: "Team Leader & Propulsion Module Developent", // 역할 추가
@@ -28,14 +28,19 @@ export const projects = [
     ],
   },
   {
-    id: "SRM",
+    id: "pallas_mini",
     title: "Pallas Mini",
     category: "I Class KNSB Motor",
     role: "Propulsion System Development", // 역할 추가
     year: "2024",
     // 실제 이미지 경로가 있다면 넣어줘! 없으면 외부 링크 사용
-    image:
-      "https://via.placeholder.com/1200x600/1a1a1a/ffffff?text=iPhone+15+Pro",
+    images: [
+      "images\\pallas_mini\\pallas_mini_main.png",
+      "images\\pallas_mini\\pallas_mini_thrust_curve.png",
+      "images\\pallas_mini\\pallas_mini_after_static_fire.jpg",
+      "images\\pallas_mini\\pallas_mini_view.png",
+      "images\\pallas_mini\\pallas_mini_view.png",
+    ],
     description:
       "- I-Class KNSB motor for AJOURO's Sounding Rocket\n" +
       "- Multi-Segment Design for Netural Thrust Curve\n" +
@@ -55,12 +60,16 @@ export const projects = [
     ],
   },
   {
-    id: "ASI",
+    id: "30n_asi",
     title: "30N Class ASI",
     category: "GOX/GCH4 Augmented Spark Ignitor for LRE",
     role: "PM",
     year: "2025",
-    image: "https://via.placeholder.com/1200x600/1a1a1a/ffffff?text=Aora+App",
+    images: [
+      "images\\30n_asi\\30n_asi_main.jpg",
+      "images\\30n_asi\\30n_asi_sub1.jpg",
+      "images\\30n_asi\\30n_asi_sub2.jpg",
+    ],
     description:
       "- 30N GOX/GCH4\n" +
       "- Augmented Spark Ignitor\n" +
@@ -74,12 +83,14 @@ export const projects = [
     ],
   },
   {
-    id: "LRE",
+    id: "vulcan_200",
     title: "Vulcan - 200 Project",
     category: "200N GOX/GCH4 LRE with Additive Manufacturing",
     role: "PM",
     year: "2025",
-    image: "https://via.placeholder.com/1200x600/1a1a1a/ffffff?text=Aora+App",
+    images: [
+      "images\\optic_the_cat.jpg",
+    ],
     description:
       "- 200N GOX/GCH4\n" +
       "- Imping Injector (Planned upgrade to a swirl-type injector)\n" +
