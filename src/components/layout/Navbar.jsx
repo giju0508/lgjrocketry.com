@@ -21,7 +21,7 @@ const Navbar = () => {
             to="/"
             className="text-lg font-bold flex items-center gap-2 text-white group"
           >
-            <span className="text-xl">🚀</span>
+            <img src="/LGJLogo.png" alt="Logo" className="w-8 h-8" />
             <span className="group-hover:text-orange-500 transition-colors">
               LGJ Rocketry
             </span>
