@@ -6,12 +6,12 @@ export const projects = [
     role: "Team Leader & Propulsion Module Developent", // 역할 추가
     year: "2023",
     images: [
-      "images\\nalda2\\nalda2_main.png",
-      "images\\nalda2\\nalda2_rocket.jpg",
-      "images\\nalda2\\nalda2_srm.jpg",
-      "images\\nalda2\\nalda2_rocket_modeling.png",
-      "images\\nalda2\\nalda2_rocket_motor_modeling.png",
-      "images\\nalda2\\nadla2_grain_manufacturing.jpg"
+      "\\images\\nalda2\\nalda2_main.png",
+      "\\images\\nalda2\\nalda2_rocket.jpg",
+      "\\images\\nalda2\\nalda2_srm.jpg",
+      "\\images\\nalda2\\nalda2_rocket_modeling.png",
+      "\\images\\nalda2\\nalda2_rocket_motor_modeling.png",
+      "\\images\\nalda2\\nadla2_grain_manufacturing.jpg",
     ],
     description:
       "- My First Rocket Engine Test & Flight\n" +
@@ -38,11 +38,11 @@ export const projects = [
     year: "2024",
     // 실제 이미지 경로가 있다면 넣어줘! 없으면 외부 링크 사용
     images: [
-      "images\\pallas_mini\\pallas_mini_main.png",
-      "images\\pallas_mini\\pallas_mini_thrust_curve.png",
-      "images\\pallas_mini\\pallas_mini_after_static_fire.jpg",
-      "images\\pallas_mini\\pallas_mini_view.png",
-      "images\\pallas_mini\\pallas_mini_view.png",
+      "\\images\\pallas_mini\\pallas_mini_main.png",
+      "\\images\\pallas_mini\\pallas_mini_thrust_curve.png",
+      "\\images\\pallas_mini\\pallas_mini_after_static_fire.jpg",
+      "\\images\\pallas_mini\\pallas_mini_view.png",
+      "\\images\\pallas_mini\\pallas_mini_view.png",
     ],
     description:
       "- I-Class KNSB motor for AJOURO's Sounding Rocket\n" +
@@ -69,9 +69,9 @@ export const projects = [
     role: "PM",
     year: "2025",
     images: [
-      "images\\30n_asi\\30n_asi_main.jpg",
-      "images\\30n_asi\\30n_asi_sub1.jpg",
-      "images\\30n_asi\\30n_asi_sub2.jpg",
+      "\\images\\30n_asi\\30n_asi_main.jpg",
+      "\\images\\30n_asi\\30n_asi_sub1.jpg",
+      "\\images\\30n_asi\\30n_asi_sub2.jpg",
     ],
     description:
       "- 30N GOX/GCH4\n" +
@@ -91,9 +91,7 @@ export const projects = [
     category: "200N GOX/GCH4 LRE with Additive Manufacturing",
     role: "PM",
     year: "2025",
-    images: [
-      "images\\optic_the_cat.jpg",
-    ],
+    images: ["\\images\\optic_the_cat.jpg"],
     description:
       "- 200N GOX/GCH4\n" +
       "- Imping Injector (Planned upgrade to a swirl-type injector)\n" +
