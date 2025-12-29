@@ -17,12 +17,12 @@ export const contactData = {
   socials: [
     {
       name: "GitHub",
-      url: "https://github.com/yourid",
+      url: "https://github.com/giju0508",
       icon: RiGithubFill, // 아이콘 컴포넌트 자체를 저장
     },
     {
       name: "Instagram",
-      url: "https://instagram.com/yourid",
+      url: "https://instagram.com/lgj_rocketry",
       icon: RiInstagramFill,
     },
     // 필요하다면 이메일도 타일로 추가 가능!
