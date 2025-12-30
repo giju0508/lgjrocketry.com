@@ -33,7 +33,7 @@ export const projects = [
   {
     id: "pallas_mini",
     title: "Pallas Mini",
-    category: "Flgith Proven I Class KNSB Motor",
+    category: "Flight Proven I-Class KNSB Motor",
     role: "Propulsion System Development", // 역할 추가
     year: "2024",
     // 실제 이미지 경로가 있다면 넣어줘! 없으면 외부 링크 사용
@@ -53,7 +53,7 @@ export const projects = [
       "- Thrust Efficiency > 92% (ISP: 107 sec at SL)",
 
     // ★ 여기가 핵심! 태그 리스트
-    tags: ["Solid Rocket Motor", "KNSB Propellant", "Flight Proven"],
+    tags: ["Solid Rocket Motor", "KNSB Propellant", "Multi Segment", "Flight Proven"],
 
     // ★ 여기가 핵심! 버튼(링크) 리스트
     links: [
@@ -190,8 +190,8 @@ export const projects = [
     id: "pallas_l2000e",
     title: "Pallas - L2000E",
     category: "2kN LOX/Ethanol Combustor",
-    role: "Developer", // 역할 추가
-    year: "2025",
+    role: "Desinger", // 역할 추가
+    year: "2026",
     // 실제 이미지 경로가 있다면 넣어줘! 없으면 외부 링크 사용
     images: [
       "\\images\\pallas_l2000e\\pallas_l2000e_main.png",
@@ -219,17 +219,55 @@ export const projects = [
   {
     id: "vulcan_200",
     title: "Vulcan - 200 Project",
-    category: "200N GOX/GCH4 GRE with AM Tech",
+    category: "To be revealed in Q2 2026",
     role: "PM",
-    year: "2025",
+    year: "2025 - 2026",
     images: ["\\images\\optic_the_cat.jpg",
       "\\images\\optic_the_second_cat.jpg",
     ],
     description:
-      "- 200N GOX/GCH4\n" +
+      "- 200 N ???/????\n" +
       "- More information & design will be revealed at 2026 Q2",
 
-    tags: ["GOX", "GCH4", "AM"],
+    tags: ["???", "???", "??"],
+
+    links: [
+      { name: "Design File", url: "#" },
+    ],
+  },
+  {
+    id: "pallas_micro_v4",
+    title: "Pallas Micro v4",
+    category: "H-Class KNSB Motor",
+    role: "Desinger",
+    year: "2026",
+    images: [
+      "\\images\\pallas_micro_v4\\pallas_micro_main.png",
+      "\\images\\pallas_micro_v4\\pallas_micro_sub1.png",
+      "\\images\\pallas_micro_v4\\pallas_micro_sub2.png",
+      "\\images\\pallas_micro_v4\\pallas_micro_sub3.png",
+      "\\images\\pallas_micro_v4\\pallas_micro_sub4.png",
+      "\\images\\pallas_micro_v4\\pallas_micro_sub5.png",
+      "\\images\\pallas_micro_v4\\pallas_micro_sub6.png",
+    ],
+    description:
+      "- H-Class KNSB Motor\n" +
+      "- Neutral Thrust Curve by Multi-Segment Design\n" +
+      "- Fail-safe design with a higher chamber FoS and controlled joint release\n" +
+      "- Planned for static-fire testing in Q1 2026\n" +
+      "\n" +
+      "- Average Thrust :         200 N\n" +
+      "- Burn Time :                      1.1 s\n" +
+      "- Propellant Weight :   200 g\n" +
+      "- Total Weight :              530 g\n" +
+      "- Chamber Pressure :     20 bar\n"+
+      "\n" +
+      "- Bulkhead Material :   Al6061-T6\n"+
+      "- Chamber Material :   Al6061-T6\n"+
+      "- Nozzle Material :             STS304\n"+
+      "- Segment Spacer :      FDM ABS",
+
+    tags: ["Solid Rocket Motor", "KNSB Propellant", "Multi Segment"],
 
     links: [
       { name: "Design File", url: "#" },

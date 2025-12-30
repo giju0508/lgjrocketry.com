@@ -98,7 +98,7 @@ const ProjectDetail = () => {
         <div className="lg:col-span-2 space-y-10">
           <div>
             <h3 className="text-2xl font-bold mb-4 text-white">Overview</h3>
-            <p className="text-gray-300 leading-relaxed text-lg whitespace-pre-line">
+            <p className="text-gray-300 leading-relaxed text-lg whitespace-pre-wrap">
               {project.description}
             </p>
           </div>
