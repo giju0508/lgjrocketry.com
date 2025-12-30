@@ -1,7 +1,7 @@
 export const experiences = [
   {
     id: 1,
-    role: "경기북과학등학교 재학",
+    role: "경기북과학등학교 졸업",
     company: "경기북과학고등학교",
     period: "Feb 2021 — Feb 2024",
     description:
@@ -20,7 +20,7 @@ export const experiences = [
   {
     id: 3,
     role: "Propulsion Engineer & Advisor",
-    company: "AJORO",
+    company: "AJOURO",
     period: "Jun 2024 — Present",
     description:
       "아주대학교의 로켓 동아리 AJOURO에서 추진 시스템 개발을 담당하고 있고, 동체 · 발사대 등 로켓 시스템 전반에 대한 설계/시험 조언을 수행하고 있습니다.",
