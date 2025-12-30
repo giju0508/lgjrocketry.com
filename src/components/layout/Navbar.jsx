@@ -6,11 +6,15 @@ const Navbar = () => {
 
   // 현재 경로일 때는 주황색(orange-500), 아니면 회색으로!
   // font-bold를 제거해서 굵기를 일정하게 맞췄어!
-  const getLinkClass = (path) =>
-    location.pathname === path
+  const getLinkClass = (path) => {
+    const isActive =
+      path === "/"
+        ? location.pathname === "/"
+        : location.pathname === path || location.pathname.startsWith(path + "/");
+    return isActive
       ? "text-orange-500 transition-colors"
       : "text-gray-400 hover:text-white transition-colors";
-
+};
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-[600px]">
       {/* 테두리 그라데이션은 유지해서 고급스러움을 살렸어! */}

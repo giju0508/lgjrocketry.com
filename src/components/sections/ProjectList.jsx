@@ -13,7 +13,7 @@ const ProjectList = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <Link
-            to={`/project/${project.id}`}
+            to={`/projects/${project.id}`}
             key={project.id}
             className="group block"
           >
