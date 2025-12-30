@@ -33,7 +33,7 @@ export const projects = [
   {
     id: "pallas_mini",
     title: "Pallas Mini",
-    category: "I Class KNSB Motor",
+    category: "Flgith Proven I Class KNSB Motor",
     role: "Propulsion System Development", // 역할 추가
     year: "2024",
     // 실제 이미지 경로가 있다면 넣어줘! 없으면 외부 링크 사용
@@ -53,7 +53,7 @@ export const projects = [
       "- Thrust Efficiency > 92% (ISP: 107 sec at SL)",
 
     // ★ 여기가 핵심! 태그 리스트
-    tags: ["Solid Rocket Motor", "KNSB Propellant"],
+    tags: ["Solid Rocket Motor", "KNSB Propellant", "Flight Proven"],
 
     // ★ 여기가 핵심! 버튼(링크) 리스트
     links: [
@@ -63,6 +63,42 @@ export const projects = [
         url: "https://www.instagram.com/p/C9tLrcHyIy7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
       },
       { name: "Design File", url: "#" },
+    ],
+  },
+  {
+    id: "ajr1",
+    title: "AJR - 1",
+    category: "400m-Class Sounding Rocket at 2024 NURA",
+    role: "Propulsion System Development & Total System Advisor", // 역할 추가
+    year: "2024",
+    // 실제 이미지 경로가 있다면 넣어줘! 없으면 외부 링크 사용
+    images: [
+      "\\images\\ajr1\\ajr1_main.jpg",
+      "\\images\\ajr1\\ajr1_sub1.png",
+      "\\images\\ajr1\\ajr1_sub2.png",
+      "\\images\\ajr1\\ajr1_sub3.jpg",
+      "\\images\\ajr1\\ajr1_sub4.jpg",
+      "\\images\\ajr1\\ajr1_sub5.png",
+      "\\images\\ajr1\\ajr1_sub7.jpg",
+    ],
+    description:
+      "- 400m Class Sounding Rocket Developed at AJOURO\n" +
+      "- Successfully Launched & Recovered at NURA 2024\n" +
+      "- Pixhawk based Avionics System\n"+
+      "- Survo motor based Fairing open type Recovery System\n"+
+      "- Successfully Recovered after reaching about 250m\n",
+
+    // ★ 여기가 핵심! 태그 리스트
+    tags: ["NURA", "AJOURO", "Sounding Rocket"],
+
+    // ★ 여기가 핵심! 버튼(링크) 리스트
+    links: [
+      { name: "[Youtube] Flight Video", url: "https://youtu.be/f6b4FRlGqX4" },
+      { name: "[Shorts] Flight Video", url: "https://youtube.com/shorts/ARVEHhoLQ3k?si=o92ngrxS1qNRs1OR" },
+      {
+        name: "[Univ News] Award News",
+        url: "https://www.ajou.ac.kr/kr/ajou/studentNews.do?mode=view&articleNo=341386&article.offset=0&articleLimit=12",
+      },
     ],
   },
   {
@@ -114,6 +150,40 @@ export const projects = [
 
     links: [
       { name: "Static Test", url: "https://youtu.be/Z7pxDd2Fwcc" }
+    ],
+  },
+  {
+    id: "ajr2",
+    title: "AJR - 2",
+    category: "400m-Class Sounding Rocket at 2025 NURA",
+    role: "Propulsion System Development & Total System Advisor", // 역할 추가
+    year: "2024",
+    // 실제 이미지 경로가 있다면 넣어줘! 없으면 외부 링크 사용
+    images: [
+      "\\images\\ajr2\\ajr2_main.jpg",
+      "\\images\\ajr2\\ajr2_sub1.jpg",
+      "\\images\\ajr2\\ajr2_sub2.png",
+      "\\images\\ajr2\\ajr2_sub3.jpg",
+      "\\images\\ajr2\\ajr2_sub4.jpg",
+      "\\images\\ajr2\\ajr2_sub5.png",
+    ],
+    description:
+      "- 400m Class Sounding Rocket Developed at AJOURO\n" +
+      "- Weight reduction and improved operability through optimized design.\n" +
+      "- Successfully Launched & Recovered at NURA 2025\n" +
+      "- Pixhawk based Avionics System\n"+
+      "- Survo motor based Fairing open type Recovery System\n"+
+      "- Successfully Recovered after reaching about 380m\n",
+
+    // ★ 여기가 핵심! 태그 리스트
+    tags: ["NURA", "AJOURO", "Sounding Rocket"],
+
+    // ★ 여기가 핵심! 버튼(링크) 리스트
+    links: [
+      {
+        name: "[Instagram] Flight Video",
+        url: "https://www.instagram.com/reel/DNKYI02hKgk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      },
     ],
   },
   {

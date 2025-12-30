@@ -7,7 +7,7 @@ const Experience = () => {
       {" "}
       {/* id 삭제, 상하 여백 추가 */}
       <h2 className="text-3xl font-bold mb-12 flex items-center gap-2">
-        <span className="text-yellow-400">✦</span> WORK HISTORY
+        <span className="text-orange-400">✦</span> MY HISTORY
       </h2>
       <div className="space-y-8">
         {experiences.map((item) => (
