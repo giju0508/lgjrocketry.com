@@ -14,6 +14,23 @@ const ProjectDetail = () => {
     setCurrentIndex(0);
   }, [id]);
 
+  useEffect(() => {
+  if (!projectImages.length) return;
+
+  const run = () => projectImages.forEach((src) => {
+    const img = new Image();
+    img.decoding = "async";
+    img.src = src;
+  });
+
+  // 브라우저 한가할 때 실행
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(run);
+  } else {
+    setTimeout(run, 200);
+  }
+}, [id]);
+
   // 프로젝트가 없을 경우 예외 처리
   if (!project) {
     return (

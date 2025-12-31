@@ -1,12 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import { contactData } from "../data/contactData";
-import { RiMailSendLine } from "react-icons/ri"; // 이메일 아이콘
+import { RiMailSendLine } from "react-icons/ri";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  // 전송 버튼 눌렀을 때 실행될 함수 (지금은 기능 없음)
-  const handleSubmit = (e) => {
-    e.preventDefault(); // 새로고침 방지
-    alert("메일 전송 기능은 아직 준비 중이야! 📧 (UI 데모)");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [isSending, setIsSending] = useState(false);
+  const [statusMsg, setStatusMsg] = useState("");
+
+  const handleChange = (e) => {
+    const { id, value } = e.target; // id가 name/email/message
+    setForm((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatusMsg("");
+    
+    // 간단 검증
+    if (!form.name || !form.email || !form.message) {
+      setStatusMsg("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      setIsSending(true);
+
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // 당신이 말한 template parameter: title, name, time, message, email
+      const templateParams = {
+        title: "New Contact Message (Portfolio)", // 원하는 값으로 변경 가능
+        name: form.name,
+        time: new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }),
+        message: form.message,
+        email: form.email,
+      };
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, {
+        publicKey: PUBLIC_KEY,
+      });
+
+      setStatusMsg("Message sent successfully.");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setStatusMsg("Failed to send message. Please try again later.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -68,7 +117,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* --- 오른쪽: 폼 UI (기능 없음) --- */}
+        {/* --- 오른쪽: 폼 (EmailJS 전송) --- */}
         <div className="bg-gray-900/50 p-8 md:p-10 rounded-3xl border border-gray-800 h-fit sticky top-24">
           <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
 
@@ -83,8 +132,11 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
+                value={form.name}
+                onChange={handleChange}
+                required
                 className="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors"
-                placeholder="John Doe"
+                placeholder="Steve"
               />
             </div>
 
@@ -98,8 +150,11 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
+                value={form.email}
+                onChange={handleChange}
+                required
                 className="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors"
-                placeholder="john@example.com"
+                placeholder="lgj@lgjrkt.com"
               />
             </div>
 
@@ -113,16 +168,24 @@ const Contact = () => {
               <textarea
                 id="message"
                 rows="4"
+                value={form.message}
+                onChange={handleChange}
+                required
                 className="w-full bg-black border border-gray-800 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors resize-none"
                 placeholder="Hello! I'd like to discuss a project..."
-              ></textarea>
+              />
             </div>
+
+            {statusMsg && (
+              <p className="text-sm text-gray-300">{statusMsg}</p>
+            )}
 
             <button
               type="submit"
-              className="w-full bg-white text-black font-bold py-4 rounded-lg hover:bg-gray-200 transition-colors"
+              disabled={isSending}
+              className="w-full bg-white text-black font-bold py-4 rounded-lg hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Message
+              {isSending ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
