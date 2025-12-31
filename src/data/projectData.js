@@ -110,16 +110,11 @@ export const projects = [
     // 실제 이미지 경로가 있다면 넣어줘! 없으면 외부 링크 사용
     images: [
       "\\images\\helios03\\helios03_main.jpg",
-      "\\images\\helios03\\helios03_sub1.jpg",
-      "\\images\\helios03\\helios03_sub2.jpg",
-      "\\images\\helios03\\helios03_sub3.jpg",
-      "\\images\\helios03\\helios03_sub4.jpg",
     ],
     description:
       "- 3kN LOX/Kerosene Combustor\n" +
       "- Additively Manufactured by PBF\n" +
-      "- Display model with STS316L and IN718 for Development model\n" +
-      "- WLAM-printed extension for Vacuum variant",
+      "- Display model with STS316L and IN718 for Development model\n",
 
     // ★ 여기가 핵심! 태그 리스트
     tags: ["3kN", "Kerolox", "Regen Cooling", "AM"],
@@ -130,18 +125,17 @@ export const projects = [
     ],
   },
   {
-    id: "30n_asi",
-    title: "30N Class ASI",
+    id: "asi",
+    title: "GOX/GCH4 ASI",
     category: "GOX/GCH4 ASI for Helios 0.3",
     role: "PM",
     year: "2025",
     images: [
       "\\images\\30n_asi\\30n_asi_main.jpg",
       "\\images\\30n_asi\\30n_asi_sub1.jpg",
-      "\\images\\30n_asi\\30n_asi_sub2.jpg",
     ],
     description:
-      "- 30N GOX/GCH4\n" +
+      "- GOX/GCH4\n" +
       "- Gas based Augmented Spark Ignitor\n" +
       "- Developed & Tested for 3kN LOX/Kerosene LRE\n"+
       "- One-piece, billet-machined design for reduced lead time and faster iteration.",
