@@ -1,10 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { projects } from "../data/projectData";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = projects.find((p) => p.id === id);
+
+  // ✅ project가 아직 없을 수도 있으므로 안전하게 이미지 배열 생성
+  const projectImages = useMemo(() => {
+    if (!project) return [];
+    return project.images || (project.image ? [project.image] : []);
+  }, [project]);
 
   // 현재 슬라이드 인덱스 상태 관리
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,22 +22,23 @@ const ProjectDetail = () => {
     setCurrentIndex(0);
   }, [id]);
 
+  // ✅ 이미지 프리로드 (브라우저 idle 시간 활용)
   useEffect(() => {
-  if (!projectImages.length) return;
+    if (!projectImages.length) return;
 
-  const run = () => projectImages.forEach((src) => {
-    const img = new Image();
-    img.decoding = "async";
-    img.src = src;
-  });
+    const run = () =>
+      projectImages.forEach((src) => {
+        const img = new Image();
+        img.decoding = "async";
+        img.src = src;
+      });
 
-  // 브라우저 한가할 때 실행
-  if ("requestIdleCallback" in window) {
-    requestIdleCallback(run);
-  } else {
-    setTimeout(run, 200);
-  }
-}, [id]);
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(run);
+    } else {
+      setTimeout(run, 200);
+    }
+  }, [id, projectImages.join("|")]);
 
   // 프로젝트가 없을 경우 예외 처리
   if (!project) {
@@ -45,10 +54,6 @@ const ProjectDetail = () => {
       </div>
     );
   }
-
-  // 이미지 배열 안전하게 가져오기 (단일 문자열이어도 배열로 변환)
-  const projectImages =
-    project.images || (project.image ? [project.image] : []);
 
   // 현재 보여줄 이미지 경로 (없을 경우를 대비해 빈 문자열 처리)
   const currentImageSrc = projectImages[currentIndex] || "";
@@ -83,9 +88,7 @@ const ProjectDetail = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-3 leading-tight tracking-tight">
             {project.title}
           </h1>
-          <p className="text-lg text-gray-400 font-medium">
-            {project.category}
-          </p>
+          <p className="text-lg text-gray-400 font-medium">{project.category}</p>
         </div>
 
         {/* 링크 버튼들 */}
@@ -115,10 +118,70 @@ const ProjectDetail = () => {
         <div className="lg:col-span-2 space-y-10">
           <div>
             <h3 className="text-2xl font-bold mb-4 text-white">Overview</h3>
-            <p className="text-gray-300 leading-relaxed text-lg whitespace-pre-wrap">
-              {project.description}
-            </p>
+
+            {/* ✅ Markdown + GFM(Table) + Tailwind에서 리스트/표가 예쁘게 보이도록 components 오버라이드 */}
+            <div className="text-gray-300 leading-relaxed text-lg">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h1: ({ node, ...props }) => (
+                    <h1 className="text-3xl font-bold mt-6 mb-3" {...props} />
+                  ),
+                  h2: ({ node, ...props }) => (
+                    <h2 className="text-2xl font-bold mt-6 mb-3" {...props} />
+                  ),
+                  h3: ({ node, ...props }) => (
+                    <h3 className="text-xl font-semibold mt-5 mb-2" {...props} />
+                  ),
+                  p: ({ node, ...props }) => (
+                    <p className="my-3" {...props} />
+                  ),
+                  ul: ({ node, ...props }) => (
+                    <ul className="list-disc pl-6 space-y-1 my-3" {...props} />
+                  ),
+                  ol: ({ node, ...props }) => (
+                    <ol
+                      className="list-decimal pl-6 space-y-1 my-3"
+                      {...props}
+                    />
+                  ),
+                  li: ({ node, ...props }) => <li {...props} />,
+                  table: ({ node, ...props }) => (
+                    <div className="overflow-x-auto my-4">
+                      <table
+                        className="w-full border border-gray-700 text-sm"
+                        {...props}
+                      />
+                    </div>
+                  ),
+                  thead: ({ node, ...props }) => (
+                    <thead className="bg-gray-900/60" {...props} />
+                  ),
+                  th: ({ node, ...props }) => (
+                    <th
+                      className="border border-gray-700 px-3 py-2 text-left font-semibold"
+                      {...props}
+                    />
+                  ),
+                  td: ({ node, ...props }) => (
+                    <td
+                      className="border border-gray-700 px-3 py-2 align-top"
+                      {...props}
+                    />
+                  ),
+                  code: ({ inline, node, ...props }) =>
+                    inline ? (
+                      <code className="px-1 py-0.5 rounded bg-gray-800/60 text-orange-200" {...props} />
+                    ) : (
+                      <code className="block p-3 rounded bg-gray-800/60 overflow-x-auto" {...props} />
+                    ),
+                }}
+              >
+                {project.description}
+              </ReactMarkdown>
+            </div>
           </div>
+
           <div>
             <h3 className="text-xl font-bold mb-4 text-gray-400">Tech Stack</h3>
             <div className="flex flex-wrap gap-2">

@@ -196,11 +196,17 @@ export const projects = [
       "\\images\\pallas_l2000e\\pallas_l2000e_sub5.png",
     ],
     description:
-      "- 2kN LOX/Kerosene LRE\n" +
-      "- LOX-center Pintle Design (Clean-Sheet Design)\n" +
-      "- Graphite Inner for Ablative Cooling\n"+
-      "- Chamber Pressure: 15 bar (1.5 MPa)\n"+
-      "- ISP: 206 sec at SL, 236 sec at Vac\n",
+    "- 2kN Ethalox Demo LRE\n\n"+
+    "- LOX-centered Pintle Injector (Clean-Sheet Design)\n\n"+
+    "| Item | Value |\n" +
+    "|:---:|:---:|\n" +
+    "| Thrust | 2000 N (SL) |\n" +
+    "| Propellant | LOX/Ethanol |\n" +
+    "| Injector | Pintle Injector |\n" +
+    "| Cooling | Ablative (Graphite Inner) |\n" +
+    "| Chamber Pressure | 15 bar ( 1.5MPa ) |\n" +
+    "| Isp (SL) | 206 s |\n" +
+    "| Isp (Vac) | 236 s |\n",
 
     // ★ 여기가 핵심! 태그 리스트
     tags: ["Etalox", "Pintle", "Ablative"],
@@ -249,19 +255,66 @@ export const projects = [
       "- Neutral Thrust Curve by Multi-Segment Design\n" +
       "- Fail-safe design with a higher chamber FoS and controlled joint release\n" +
       "- Planned for static-fire testing in Q1 2026\n" +
-      "\n" +
-      "- Average Thrust :         200 N\n" +
-      "- Burn Time :                      1.1 s\n" +
-      "- Propellant Weight :   200 g\n" +
-      "- Total Weight :              530 g\n" +
-      "- Chamber Pressure :     20 bar\n"+
-      "\n" +
-      "- Bulkhead Material :   Al6061-T6\n"+
-      "- Chamber Material :   Al6061-T6\n"+
-      "- Nozzle Material :             STS304\n"+
-      "- Segment Spacer :      FDM ABS",
+      "\n\n"+
+      "| Item | Value |\n" +
+      "|:---:|:---:|\n" +
+      "| Motor Class | H200 |\n" +
+      "| Propellant | KNSB |\n" +
+      "| Diameter | 38 mm |\n" +
+      "| Height | 275 mm |\n" +
+      "| Burn Time | 1.1 s |\n" +
+      "| Average Thrust | 200 N |\n" +
+      "| Total Impulse | 228 N·s |\n" +
+      "| Isp | 116 s |\n" +
+      "| Propellant Weight | 200 g |\n" +
+      "| Total Weight | 530 g |\n" +
+      "| Mass Fraction | 38 % |\n" +
+      "| Chamber, Clousers, Retainer | Al6061-T6 |\n" +
+      "| Nozzle | STS304 |\n\n",
+
 
     tags: ["Solid Rocket Motor", "KNSB Propellant", "Multi Segment"],
+
+    links: [
+      { name: "Design File", url: "#" },
+    ],
+  },
+  {
+    id: "ALPM",
+    title: "ALPM",
+    category: "Advanced Light-weight Propulsion Module",
+    role: "Propulsion System Development",
+    year: "2026",
+    images: [
+      "\\images\\alpm\\alpm_main.png",
+      "\\images\\alpm\\alpm_sub1.png",
+      "\\images\\alpm\\alpm_sub2.png",
+      "\\images\\alpm\\alpm_sub3.png",
+      "\\images\\alpm\\alpm_sub4.png",
+    ],
+    description:
+      "- I-Class KNSB Motor ( derived from Pallas - Mini )\n\n" +
+      "- Same propellant mass( 400g ), reduced structure mass\n" +
+      "- EX60 Carbon Ablative Nozzle \n" +
+      "- Developed for 2026 NURA, single I-Class motor for 800 m apogee\n" +
+      "\n\n" +
+      "| Item | Value |\n" +
+      "|:---:|:---:|\n" +
+      "| Motor Class | I296 |\n" +
+      "| Propellant | KNSB |\n" +
+      "| Diameter | 47 mm |\n" +
+      "| Height | 305 mm |\n" +
+      "| Burn Time | 1.6 s |\n" +
+      "| Average Thrust | 296 N |\n" +
+      "| Total Impulse | 462 N·s |\n" +
+      "| Isp | 116 s |\n" +
+      "| Propellant Weight | 400 g |\n" +
+      "| Total Weight | < 760 g |\n" +
+      "| Mass Fraction | > 53 % |\n" +
+      "| Chamber, Closures, Retainer | Al6061-T6 |\n" +
+      "| Nozzle | Ablative Liner ( EX60 ) |\n\n",
+
+    tags: ["Solid Rocket Motor", "KNSB Propellant", "Multi Segment", "Ablative Nozzle"],
 
     links: [
       { name: "Design File", url: "#" },
