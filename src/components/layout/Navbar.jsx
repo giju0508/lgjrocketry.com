@@ -1,50 +1,50 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
+
+const navigationItems = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/projects", label: "Projects" },
+  { to: "/contact", label: "Contact" },
+];
 
 const Navbar = () => {
   const location = useLocation();
 
-  // 현재 경로일 때는 주황색(orange-500), 아니면 회색으로!
-  // font-bold를 제거해서 굵기를 일정하게 맞췄어!
   const getLinkClass = (path) => {
     const isActive =
       path === "/"
         ? location.pathname === "/"
-        : location.pathname === path || location.pathname.startsWith(path + "/");
+        : location.pathname === path || location.pathname.startsWith(`${path}/`);
+
     return isActive
-      ? "text-orange-500 transition-colors"
-      : "text-gray-400 hover:text-white transition-colors";
-};
+      ? "border-orange-300/60 bg-orange-400/16 text-orange-50"
+      : "border-transparent text-slate-300 hover:border-orange-400/38 hover:bg-orange-400/[0.1] hover:text-orange-50";
+  };
+
   return (
-    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-[600px]">
-      {/* 테두리 그라데이션은 유지해서 고급스러움을 살렸어! */}
-      <div className="rounded-full p-[1px] bg-gradient-to-r from-orange-500/40 via-red-600/40 to-orange-400/90 shadow-lg">
-        <div className="flex items-center justify-between px-6 py-3 rounded-full bg-black/80 backdrop-blur-xl">
-          {/* 로고 섹션 */}
+    <nav className="fixed inset-x-0 top-2 z-50 sm:top-4">
+      <div className="mx-auto w-full max-w-[1080px] px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-2 rounded-[1.75rem] border border-orange-400/34 bg-black/78 px-3 py-2 shadow-2xl shadow-black/40 backdrop-blur-2xl sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-5 sm:py-3">
           <Link
             to="/"
-            className="text-lg font-bold flex items-center gap-2 text-white group"
+            className="flex items-center gap-3 px-1 py-1 transition hover:text-orange-50"
           >
-            <img src="/LGJLogo.png" alt="Logo" className="w-8 h-8" />
-            <span className="group-hover:text-orange-500 transition-colors">
+            <img src="/LGJLogo.png" alt="LGJ Rocketry Logo" className="h-8 w-8 sm:h-9 sm:w-9" />
+            <span className="text-sm font-semibold tracking-wide text-white">
               LGJ Rocketry
             </span>
           </Link>
 
-          {/* 메뉴 링크: 굵기는 font-medium으로 통일! */}
-          <div className="flex items-center gap-6 text-sm font-medium">
-            <Link to="/" className={getLinkClass("/")}>
-              Home
-            </Link>
-            <Link to="/about" className={getLinkClass("/about")}>
-              About
-            </Link>
-            <Link to="/projects" className={getLinkClass("/projects")}>
-              Projects
-            </Link>
-            <Link to="/contact" className={getLinkClass("/contact")}>
-              Contact
-            </Link>
+          <div className="grid w-full grid-cols-4 gap-2 sm:w-auto sm:flex sm:flex-wrap sm:items-center">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={`rounded-full border px-3 py-1.5 text-center text-xs font-semibold transition sm:px-4 sm:py-2 sm:text-sm ${getLinkClass(item.to)}`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

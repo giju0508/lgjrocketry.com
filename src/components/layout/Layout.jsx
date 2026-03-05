@@ -1,22 +1,23 @@
-// src/components/layout/Layout.jsx
-import React from 'react';
-import Navbar from './Navbar'; // Navbar 불러오기
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen bg-black text-white px-6 md:px-12 lg:px-24">
-      
-      {/* 여기에 Navbar 추가! */}
+    <div className="min-h-screen text-white">
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-[#040506]" />
+        <div className="absolute left-[-8%] top-[-7rem] h-72 w-72 rounded-full bg-orange-500/12 blur-3xl" />
+        <div className="absolute bottom-[-8rem] right-[-10%] h-80 w-80 rounded-full bg-orange-700/10 blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,4,5,0.9),rgba(4,5,6,0.98))]" />
+      </div>
+
       <Navbar />
 
-      {/* Navbar가 떠 있으니까 본문이 가려지지 않게 위쪽 여백(pt-32)을 좀 넉넉히 줌 */}
-      <div className="max-w-5xl mx-auto pt-32 pb-12">
+      <main className="mx-auto flex w-full max-w-[1080px] flex-col px-4 pb-8 pt-32 sm:px-6 sm:pt-28 lg:px-8">
         {children}
-      </div>
-      
-      <footer className="mt-24 pb-12 text-gray-500 text-sm text-center border-t border-gray-900 pt-8">
-        © 2026 LGJ Rocketry. All Rights Reserved.
-      </footer>
+      </main>
+
+      <Footer />
     </div>
   );
 };

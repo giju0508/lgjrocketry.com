@@ -3,28 +3,73 @@
 
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+}
+
 @layer base {
-  /* 모든 요소에 폰트 강제 적용 */
   * {
     font-family: "Montserrat", "Pretendard", sans-serif !important;
   }
 
+  *::selection {
+    background: rgba(251, 146, 60, 0.35);
+    color: #fff7ed;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-gray-800 text-white antialiased selection:bg-purple-500 selection:text-white;
+    @apply min-h-screen bg-[#05070b] text-white antialiased;
+    background-image:
+      radial-gradient(circle at 18% 0%, rgba(249, 115, 22, 0.14), transparent 26%),
+      radial-gradient(circle at 84% 18%, rgba(194, 65, 12, 0.1), transparent 24%),
+      linear-gradient(180deg, #020304 0%, #05070b 42%, #030405 100%);
+  }
+
+  a {
+    @apply outline-none;
+  }
+
+  button {
+    @apply outline-none;
   }
 }
 
-/* 스크롤바 숨김 (선택사항 - 디자인 깔끔하게 하려면 추천) */
+@layer components {
+  .animate-enter {
+    animation: enter-rise 480ms ease-out both;
+  }
+}
+
+@keyframes enter-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: #04060a;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
+  border: 2px solid #04060a;
+  border-radius: 999px;
+  background: #2a2f39;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #9a3412;
 }

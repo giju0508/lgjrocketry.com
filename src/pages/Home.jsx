@@ -1,12 +1,43 @@
 // src/pages/Home.jsx
-import React from "react";
-import Hero from "../components/sections/Hero";
+import { Link } from "react-router-dom";
+import PageHeader from "../components/ui/PageHeader";
+import { projectsById } from "../content/projects";
+import Hero from "../features/home/Hero";
+import ProjectCollection from "../features/projects/ProjectCollection";
+
+const keyProjectIds = ["pallas_mini", "helios03", "asi"];
 
 const Home = () => {
+  const featuredProjects = keyProjectIds
+    .map((projectId) => projectsById[projectId])
+    .filter(Boolean);
+
   return (
-    <div className="animate-fade-in -mt-24 space-y-20">
+    <div className="space-y-16">
       <Hero />
-      {/* 필요하다면 여기에 "Featured Projects" 같은 섹션을 추가해도 좋아 */}
+
+      <section className="space-y-6">
+        <PageHeader
+          eyebrow="Projects"
+          title="Key Projects"
+          description="주요 프로젝트를 먼저 확인해보세요."
+          action={
+            <Link
+              to="/projects"
+              className="inline-flex items-center justify-center rounded-full border border-orange-400/30 bg-black/25 px-5 py-3 text-sm font-semibold text-orange-100 transition hover:border-orange-300/55 hover:bg-orange-400/[0.12]"
+            >
+              View All Projects
+            </Link>
+          }
+        />
+
+        <ProjectCollection
+          items={featuredProjects}
+          limit={keyProjectIds.length}
+          emptyTitle="No featured projects yet"
+          emptyDescription=""
+        />
+      </section>
     </div>
   );
 };
