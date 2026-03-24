@@ -155,8 +155,8 @@ export const projects = [
   }),
   buildProject({
     id: "asi",
-    title: "GOX/GCH4 ASI",
-    category: "GOX/GCH4 ASI for Helios 0.3",
+    title: "GOX / GCH4 ASI",
+    category: "GOX / GCH4 ASI for Helios 0.3",
     role: "PM",
     year: "2025",
     images: [
@@ -164,7 +164,7 @@ export const projects = [
       "/images/30n_asi/30n_asi_sub1.jpg",
     ],
     descriptionLines: [
-      "- GOX/GCH4",
+      "- GOX / GCH4",
       "- Gas based Augmented Spark Ignitor",
       "- Developed & Tested for 3kN LOX/Kerosene LRE",
       "- One-piece, billet-machined design for reduced lead time and faster iteration.",
@@ -246,21 +246,41 @@ export const projects = [
   }),
   buildProject({
     id: "vulcan_200",
-    title: "Vulcan - 200 Project",
-    category: "To be revealed in Q2 2026",
+    title: "Vulcan - 200",
+    category: "200N GOX / GCH4 Engine",
     role: "PM",
     year: "2025 - 2026",
-    images: ["/images/optic_the_cat.jpg", "/images/optic_the_second_cat.jpg"],
+    images: ["/images/vulcan200/vulcan200_main.png",
+      "/images/vulcan200/vulcan200_sub1.jpg",
+      "/images/vulcan200/vulcan200_sub2.jpeg",
+      "/images/vulcan200/vulcan200_sub3.jpeg",
+      "/images/vulcan200/vulcan200_sub4.jpeg",
+      "/images/vulcan200/vulcan200_sub5.jpeg",
+      "/images/vulcan200/vulcan200_sub6.jpeg",
+      "/images/vulcan200/vulcan200_sub7.jpeg",
+      "/images/vulcan200/vulcan200_sub8.jpeg",
+    ],
+    captions: [
+      "Static Fire",
+      "Static Fire",
+      "Engine Top view after Static Fire ( with 2 welded TC )",
+      "Engine & Test Stand view",
+      "Test Stand Top view",
+      "Unlike-Doublet Impinging Injector ( Left: Nominal Type, Right: Film Cooling Type )",
+      "Engine 3D Cad",
+      "Engine 3D Cad",
+      "Engine 3D Cad ( Cross Section view )"
+    ],
     descriptionLines: [
       "- 200 N GOX / GCH4 Engine",
-      "- Gas-Gas Impinging Injector",
       "- Additive Manufactured with IN718",
+      "- Unlike-Doublet type Impinging Injector"
     ],
-    tags: ["GOX", "GCH4", "Impinging Injector", "Heat Sink", "AM"],
+    tags: ["GOX", "GCH4", "Impinging Injector", "Heat Sink", "Film Cooling", "AM"],
     links: [
       {
-        name: "Design File",
-        url: "#",
+        name: "[Youtube]Static Fire",
+        url: "https://youtu.be/SW71hS7ijeg",
       },
     ],
   }),
