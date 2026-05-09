@@ -26,7 +26,12 @@ const buildProject = ({
   links,
 });
 
-export const projects = [
+const hiddenProjectIds = new Set([
+  "nalda2",
+  "pallas_l2000e",
+]);
+
+const allProjects = [
   buildProject({
     id: "nalda2",
     title: "NALDA - 2",
@@ -285,6 +290,32 @@ export const projects = [
     ],
   }),
   buildProject({
+    id: "pallas_l1000e",
+    title: "1kN Ethalox Combustor",
+    category: "1kN LOX / Ethanol Engine",
+    role: "Developer",
+    year: "2026",
+    images: ["/images/pallas_l1000e/main.jpg",
+      "/images/pallas_l1000e/sub3.png",
+      "/images/pallas_l1000e/sub4.png",
+      "/images/pallas_l1000e/sub5.png",
+      "/images/pallas_l1000e/sub1.jpg",
+      "/images/pallas_l1000e/sub2.jpg"
+    ],
+    captions: [
+    ],
+    descriptionLines: [
+      "- 1000 N LOX / Ethanol LRE",
+      "- Additive Manufactured with IN718",
+      "- Regenerative Cooling"
+    ],
+    tags: ["LOX", "Ethanol", "Regenerative Cooling", "AM"],
+    links: [
+      {
+      },
+    ],
+  }),
+  buildProject({
     id: "pallas_micro_v4",
     title: "Pallas Micro v4",
     category: "H-Class KNSB Motor",
@@ -378,6 +409,10 @@ export const projects = [
     ],
   }),
 ];
+
+export const projects = allProjects.filter(
+  (project) => !hiddenProjectIds.has(project.id),
+);
 
 export const projectsById = Object.fromEntries(
   projects.map((project) => [project.id, project]),
