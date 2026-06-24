@@ -5,7 +5,7 @@ import { projectsById } from "../content/projects";
 import Hero from "../features/home/Hero";
 import ProjectCollection from "../features/projects/ProjectCollection";
 
-const keyProjectIds = ["pallas_mini", "helios03", "asi"];
+const keyProjectIds = ["asi", "vulcan_200", "alpm_v2"];
 
 const Home = () => {
   const featuredProjects = keyProjectIds
