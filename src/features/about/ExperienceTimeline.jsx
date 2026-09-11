@@ -25,7 +25,18 @@ const ExperienceTimeline = () => {
                 </div>
 
                 <p className="mt-2 text-sm font-medium text-orange-200">
-                  @{item.company}
+                  {item.companyUrl ? (
+                    <a
+                      href={item.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-sm underline decoration-orange-300/45 underline-offset-4 transition hover:text-orange-100 hover:decoration-orange-100 focus-visible:ring-2 focus-visible:ring-orange-300 focus-visible:ring-offset-4 focus-visible:ring-offset-[#05070b]"
+                    >
+                      @{item.company}
+                    </a>
+                  ) : (
+                    <>@{item.company}</>
+                  )}
                 </p>
 
                 <p className="mt-4 leading-7 text-slate-300">{item.description}</p>

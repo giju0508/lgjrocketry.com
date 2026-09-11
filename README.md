@@ -1,4 +1,14 @@
-# React + Vite
+# LGJ Rocketry
+
+## Image optimization
+
+Run `npm install`, then `npm run dev` or `npm run build`. Both commands generate responsive WebP images with Sharp before Vite starts. Use Node.js 20.19+ or 22.12+.
+
+Keep original photos in `public/images` and reference their original paths in the project data. The generator creates 320, 640, 1024, 1600 and 2048 px variants without upscaling, preserves orientation, and embeds tiny previews in `src/content/imageManifest.json`. Originals remain available as a fallback. Cards and thumbnails load lazily; the hero loads immediately. Images fade from the preview into the selected responsive variant.
+
+After replacing or adding images while the dev server is running, run `npm run optimize:images` again. Content hashes prevent stale cached images, and unchanged variants are reused. Generated files in `public/optimized` and the manifest are ignored by Git and recreated automatically for deployment. To remove obsolete generated variants, delete only `public/optimized` and regenerate.
+
+## Vite template notes
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

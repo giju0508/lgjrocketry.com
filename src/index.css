@@ -39,8 +39,47 @@
 }
 
 @layer components {
+  .progressive-image {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+
+  .progressive-image-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(12px);
+    transition: opacity 240ms ease;
+  }
+
+  .progressive-image-preview.is-loaded {
+    opacity: 0;
+  }
+
+  .progressive-image-full {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 240ms ease;
+  }
+
+  .progressive-image-full.is-loaded {
+    opacity: 1;
+  }
+
   .animate-enter {
     animation: enter-rise 480ms ease-out both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressive-image-preview,
+  .progressive-image-full {
+    transition: none;
   }
 }
 

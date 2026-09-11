@@ -1,4 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
+import { getImageSources } from "../../lib/imageSources";
+
+const logo = getImageSources("/LGJLogo.png", 320);
 
 const navigationItems = [
   { to: "/", label: "Home" },
@@ -29,7 +32,7 @@ const Navbar = () => {
             to="/"
             className="flex items-center gap-3 px-1 py-1 transition hover:text-orange-50"
           >
-            <img src="/LGJLogo.png" alt="LGJ Rocketry Logo" className="h-8 w-8 sm:h-9 sm:w-9" />
+            <img src={logo.src} width="36" height="36" alt="LGJ Rocketry Logo" className="h-8 w-8 sm:h-9 sm:w-9" />
             <span className="text-sm font-semibold tracking-wide text-white">
               LGJ Rocketry
             </span>

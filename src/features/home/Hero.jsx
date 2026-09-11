@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import { heroContent } from "../../content/siteContent";
-import { resolveAssetPath } from "../../lib/assets";
+import ProgressiveImage from "../../components/ui/ProgressiveImage";
 
 const Hero = () => {
   return (
     <section className="relative min-h-[64vh] overflow-hidden rounded-[2rem] border border-orange-400/34 bg-[#040506] px-5 py-8 sm:min-h-[68vh] sm:px-7 md:px-9 md:py-12">
       <div className="absolute inset-0">
-        <img
-          src={resolveAssetPath("/images/wallpaper.jpg")}
-          alt="Background"
-          className="h-full w-full object-cover object-[80%_center] opacity-52"
+        <ProgressiveImage
+          src="/images/wallpaper.jpg"
+          alt=""
+          className="h-full w-full opacity-52"
+          imageClassName="object-cover object-[80%_center]"
+          sizes="(min-width: 1080px) max(1016px, 110vh), max(calc(100vw - 32px), 110vh)"
+          priority
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,4,5,0.98)_0%,rgba(3,4,5,0.92)_22%,rgba(3,4,5,0.68)_46%,rgba(3,4,5,0.52)_68%,rgba(3,4,5,0.68)_100%),radial-gradient(circle_at_top_right,rgba(249,115,22,0.18),transparent_30%),linear-gradient(180deg,rgba(3,4,5,0.1),rgba(3,4,5,0.56))]" />
       </div>

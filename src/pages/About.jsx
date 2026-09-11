@@ -2,11 +2,9 @@ import { Link } from "react-router-dom";
 import PageHeader from "../components/ui/PageHeader";
 import { aboutContent } from "../content/siteContent";
 import ExperienceTimeline from "../features/about/ExperienceTimeline";
-import { resolveAssetPath } from "../lib/assets";
+import ProgressiveImage from "../components/ui/ProgressiveImage";
 
 const About = () => {
-  const aboutImage = resolveAssetPath("/images/ajr2/ajr2_main.jpg");
-
   return (
     <div className="space-y-10">
       <PageHeader eyebrow="About" title={aboutContent.title} />
@@ -23,11 +21,12 @@ const About = () => {
             </article>
 
             <figure className="overflow-hidden rounded-2xl border border-orange-400/24 bg-black/25">
-              <img
-                src={aboutImage}
+              <ProgressiveImage
+                src="/images/ajr2/ajr2_main.jpg"
                 alt="AJR-2"
-                className="h-full min-h-[260px] w-full object-cover object-center"
-                loading="lazy"
+                className="h-full min-h-[260px] w-full"
+                imageClassName="object-cover object-center"
+                sizes="(min-width: 1024px) 380px, calc(100vw - 96px)"
               />
             </figure>
           </div>

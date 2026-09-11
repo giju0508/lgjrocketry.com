@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
-import { resolveAssetPath } from "../../lib/assets";
+import ProgressiveImage from "../../components/ui/ProgressiveImage";
 
 const ProjectCard = ({ project }) => {
-  const previewImage = resolveAssetPath(project.images[0]);
-
   return (
     <Link
       to={`/projects/${project.id}`}
       className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-orange-400/28 bg-black/25 transition duration-300 hover:-translate-y-1 hover:border-orange-300/48 hover:bg-black/30"
     >
       <div className="relative aspect-[16/10] overflow-hidden border-b border-orange-400/16 bg-black/30">
-        <img
-          src={previewImage}
+        <ProgressiveImage
+          src={project.images[0]}
           alt={project.title}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full transition duration-500 group-hover:scale-105"
+          imageClassName="object-cover"
+          sizes="(min-width: 1280px) 326px, (min-width: 1080px) 498px, (min-width: 768px) calc((100vw - 84px) / 2), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+          maxWidth={1600}
         />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 to-transparent" />
         <div className="absolute right-3 top-3 rounded-full border border-orange-400/26 bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white">

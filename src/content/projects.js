@@ -38,7 +38,7 @@ const allProjects = [
     id: "nalda2",
     title: "NALDA - 2",
     category: "600m-Class Sounding Rocket",
-    role: "Team Leader & Propulsion Module Developent",
+    role: "Team Leader & Propulsion Module Development",
     year: "2023",
     images: [
       "/images/nalda2/nalda2_main.png",
@@ -56,11 +56,11 @@ const allProjects = [
     tags: ["SRM", "KNSB", "Sounding Rocket"],
     links: [
       {
-        name: "[Youtube] Static Fire",
+        name: "[YouTube] Static Fire",
         url: "https://youtu.be/y-Bl1bwOfSU?si=TM1PpCnROWI0t8S_",
       },
       {
-        name: "[Youtube] Test Flight",
+        name: "[YouTube] Test Flight",
         url: "https://youtu.be/ZTEYskIgb0E",
       },
     ],
@@ -81,7 +81,7 @@ const allProjects = [
     ],
     descriptionLines: [
       "- I-Class KNSB motor for AJOURO's Sounding Rocket",
-      "- Multi-Segment Design for Netural Thrust Curve",
+      "- Multi-Segment Design for Neutral Thrust Curve",
       "- Maximizing performance by weight-optimized design",
       "(Total 1kg including propellant, about 40% propellant loading fraction)",
       "- Thrust Efficiency > 92% (ISP: 107 sec at SL)",
@@ -89,7 +89,7 @@ const allProjects = [
     tags: ["SRM", "KNSB", "Multi Segment", "Flight Proven"],
     links: [
       {
-        name: "[Youtube] Static Fire",
+        name: "[YouTube] Static Fire",
         url: "https://youtu.be/1du52inQEJk",
       },
       {
@@ -121,13 +121,13 @@ const allProjects = [
       "- 400m Class Sounding Rocket Developed at AJOURO",
       "- Successfully Launched & Recovered at NURA 2024",
       "- Pixhawk based Avionics System",
-      "- Survo motor based Fairing open type Recovery System",
+      "- Servo motor based Fairing open type Recovery System",
       "- Successfully Recovered after reaching about 250m",
     ],
     tags: ["NURA", "AJOURO", "Sounding Rocket", "SRM"],
     links: [
       {
-        name: "[Youtube] Flight Video",
+        name: "[YouTube] Flight Video",
         url: "https://youtu.be/f6b4FRlGqX4",
       },
       {
@@ -203,7 +203,7 @@ const allProjects = [
       "- Weight reduction and improved operability through optimized design.",
       "- Successfully Launched & Recovered at NURA 2025",
       "- Pixhawk based Avionics System",
-      "- Survo motor based Fairing open type Recovery System",
+      "- Servo motor based Fairing open type Recovery System",
       "- Successfully Recovered after reaching about 380m",
     ],
     tags: ["NURA", "AJOURO", "Sounding Rocket", "SRM"],
@@ -218,7 +218,7 @@ const allProjects = [
     id: "pallas_l2000e",
     title: "Pallas - L2000E",
     category: "2kN LOX / Ethanol Combustor",
-    role: "Desinger",
+    role: "Designer",
     year: "2026",
     images: [
       "/images/pallas_l2000e/pallas_l2000e_main.png",
@@ -274,19 +274,19 @@ const allProjects = [
       "Engine & Test Stand view",
       "Test Stand Top view",
       "Unlike-Doublet Impinging Injector ( Left: Nominal Type, Right: Film Cooling Type )",
-      "Engine 3D Cad",
-      "Engine 3D Cad",
-      "Engine 3D Cad ( Cross Section view )"
+      "Engine 3D CAD",
+      "Engine 3D CAD",
+      "Engine 3D CAD ( Cross Section view )"
     ],
     descriptionLines: [
       "- 200 N GOX / GCH4 Engine",
-      "- Additive Manufactured with IN718",
+      "- Additively Manufactured with IN718",
       "- Unlike-Doublet type Impinging Injector"
     ],
     tags: ["GOX", "GCH4", "Impinging Injector", "Heat Sink", "Film Cooling", "AM"],
     links: [
       {
-        name: "[Youtube]Static Fire",
+        name: "[YouTube] Static Fire",
         url: "https://youtu.be/SW71hS7ijeg",
       },
     ],
@@ -308,7 +308,7 @@ const allProjects = [
     ],
     descriptionLines: [
       "- 1000 N LOX / Ethanol LRE",
-      "- Additive Manufactured with IN718",
+      "- Additively Manufactured with IN718",
       "- Regenerative Cooling"
     ],
     tags: ["LOX", "Ethanol", "Regenerative Cooling", "AM"],
@@ -321,7 +321,7 @@ const allProjects = [
     id: "pallas_micro_v4",
     title: "Pallas Micro v4",
     category: "H-Class KNSB Motor",
-    role: "Desinger",
+    role: "Designer",
     year: "2026",
     images: [
       "/images/pallas_micro_v4/pallas_micro_main.png",
@@ -352,7 +352,7 @@ const allProjects = [
       "| Propellant Weight | 200 g |",
       "| Total Weight | 530 g |",
       "| Mass Fraction | 38 % |",
-      "| Chamber, Clousers, Retainer | Al6061-T6 |",
+      "| Chamber, Closures, Retainer | Al6061-T6 |",
       "| Nozzle | STS304 |",
       "",
     ],
@@ -367,7 +367,7 @@ const allProjects = [
   buildProject({
     id: "ALPM",
     title: "ALPM",
-    category: "Advanced Light-weight Propulsion Module",
+    category: "Advanced Lightweight Propulsion Module",
     role: "Propulsion System Development",
     year: "2026",
     images: [
@@ -413,7 +413,7 @@ const allProjects = [
   buildProject({
     id: "alpm_v2",
     title: "ALPM v2",
-    category: "Advanced Light-weight Propulsion Module",
+    category: "Advanced Lightweight Propulsion Module",
     role: "Propulsion System Development",
     year: "2026",
     images: [

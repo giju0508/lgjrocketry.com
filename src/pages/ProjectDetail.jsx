@@ -50,10 +50,10 @@ const ProjectDetail = () => {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {project.links.map((link) =>
+            {project.links.map((link, index) =>
               isInteractiveLink(link.url) ? (
                 <a
-                  key={link.name}
+                  key={`${link.name || "pending"}-${index}`}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -64,7 +64,7 @@ const ProjectDetail = () => {
                 </a>
               ) : (
                 <span
-                  key={link.name}
+                  key={`${link.name || "pending"}-${index}`}
                   className="inline-flex items-center gap-2 rounded-full border border-orange-400/18 bg-black/20 px-4 py-2 text-sm font-semibold text-slate-500"
                 >
                   {link.name}
