@@ -5,9 +5,9 @@ const ProjectCard = ({ project }) => {
   return (
     <Link
       to={`/projects/${project.id}`}
-      className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-orange-400/28 bg-black/25 transition duration-300 hover:-translate-y-1 hover:border-orange-300/48 hover:bg-black/30"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white/[0.025] ring-1 ring-white/10 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.045] hover:ring-orange-300/40"
     >
-      <div className="relative aspect-[16/10] overflow-hidden border-b border-orange-400/16 bg-black/30">
+      <div className="relative aspect-[16/10] overflow-hidden bg-black/30">
         <ProgressiveImage
           src={project.images[0]}
           alt={project.title}
@@ -17,36 +17,35 @@ const ProjectCard = ({ project }) => {
           maxWidth={1600}
         />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 to-transparent" />
-        <div className="absolute right-3 top-3 rounded-full border border-orange-400/26 bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white">
+        <div className="absolute right-3 top-3 rounded-full bg-black/75 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
           {project.year}
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col gap-4 px-4 py-4 sm:px-5">
-        <div className="space-y-1.5">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
-            {project.category}
+      <div className="flex flex-1 flex-col gap-4 p-5 sm:p-6">
+        <div className="space-y-3">
+          {project.stage ? <p className="text-xs font-medium text-orange-200">{project.stage}</p> : null}
+          <h3 className="text-xl font-semibold leading-snug tracking-tight text-white transition group-hover:text-orange-200">
+            {project.title}
+          </h3>
+          <p className="text-sm leading-6 text-slate-300">
+            {project.summary || project.category}
           </p>
-          <div>
-            <h3 className="text-lg font-semibold tracking-tight text-white transition group-hover:text-orange-200 sm:text-xl">
-              {project.title}
-            </h3>
-          </div>
         </div>
 
         <div className="flex flex-wrap gap-x-2 gap-y-1">
-          {project.tags.slice(0, 4).map((tag) => (
+          {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-[11px] font-medium leading-5 text-orange-200/90"
+              className="text-xs leading-5 text-slate-400"
             >
               #{tag}
             </span>
           ))}
         </div>
 
-        <div className="mt-auto flex items-center justify-between border-t border-orange-400/16 pt-3 text-xs font-semibold text-slate-300 transition group-hover:text-white sm:text-sm">
-          <span>View Details</span>
+        <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-4 text-sm font-medium text-slate-200 transition group-hover:text-orange-200">
+          <span>Explore project</span>
           <span className="transition-transform duration-300 group-hover:translate-x-1">
             →
           </span>

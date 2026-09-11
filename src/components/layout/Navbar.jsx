@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <nav className="fixed inset-x-0 top-2 z-50 sm:top-4">
       <div className="mx-auto w-full max-w-[1080px] px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-2 rounded-[1.75rem] border border-orange-400/34 bg-black/78 px-3 py-2 shadow-2xl shadow-black/40 backdrop-blur-2xl sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-5 sm:py-3">
+        <div className="flex flex-col gap-1 rounded-2xl border border-white/10 bg-black/85 px-3 py-2 shadow-xl shadow-black/20 backdrop-blur-2xl sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-5 sm:py-3">
           <Link
             to="/"
             className="flex items-center gap-3 px-1 py-1 transition hover:text-orange-50"
@@ -43,7 +43,8 @@ const Navbar = () => {
               <Link
                 key={item.to}
                 to={item.to}
-                className={`rounded-full border px-3 py-1.5 text-center text-xs font-semibold transition sm:px-4 sm:py-2 sm:text-sm ${getLinkClass(item.to)}`}
+                aria-current={(item.to === "/" ? location.pathname === "/" : location.pathname === item.to || location.pathname.startsWith(`${item.to}/`)) ? "page" : undefined}
+                className={`inline-flex min-h-10 items-center justify-center rounded-full border px-3 py-2 text-center text-xs font-medium transition sm:px-4 sm:text-sm ${getLinkClass(item.to)}`}
               >
                 {item.label}
               </Link>

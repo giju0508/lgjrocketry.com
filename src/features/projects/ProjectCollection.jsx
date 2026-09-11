@@ -1,11 +1,7 @@
-import {
-  startTransition,
-  useDeferredValue,
-  useMemo,
-  useState,
-} from "react";
+import { useMemo, useState } from "react";
 import EmptyState from "../../components/ui/EmptyState";
 import { projectTags } from "../../content/projects";
+import { matchesProjectCategory } from "../../lib/projectCategories";
 import ProjectCard from "./ProjectCard";
 import ProjectFilters from "./ProjectFilters";
 
@@ -17,26 +13,33 @@ const ProjectCollection = ({
   emptyDescription = "Try removing a few filters and check again.",
 }) => {
   const [selectedTags, setSelectedTags] = useState([]);
-  const deferredSelectedTags = useDeferredValue(selectedTags);
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const countsByTag = useMemo(
     () =>
       projectTags.reduce((accumulator, tag) => {
-        accumulator[tag] = items.filter((project) => project.tags.includes(tag)).length;
+        accumulator[tag] = items.filter(
+          (project) =>
+            matchesProjectCategory(project, selectedCategory) &&
+            selectedTags.every((selectedTag) => project.tags.includes(selectedTag)) &&
+            project.tags.includes(tag),
+        ).length;
         return accumulator;
       }, {}),
-    [items],
+    [items, selectedCategory, selectedTags],
   );
 
   const filteredItems = useMemo(() => {
-    if (!enableFilters || deferredSelectedTags.length === 0) {
+    if (!enableFilters) {
       return items;
     }
 
-    return items.filter((project) =>
-      deferredSelectedTags.every((tag) => project.tags.includes(tag)),
+    return items.filter(
+      (project) =>
+        matchesProjectCategory(project, selectedCategory) &&
+        selectedTags.every((tag) => project.tags.includes(tag)),
     );
-  }, [deferredSelectedTags, enableFilters, items]);
+  }, [selectedTags, selectedCategory, enableFilters, items]);
 
   const visibleItems = useMemo(() => {
     if (typeof limit === "number") {
@@ -47,19 +50,16 @@ const ProjectCollection = ({
   }, [filteredItems, limit]);
 
   const toggleTag = (tag) => {
-    startTransition(() => {
-      setSelectedTags((currentTags) =>
-        currentTags.includes(tag)
-          ? currentTags.filter((value) => value !== tag)
-          : [...currentTags, tag],
-      );
-    });
+    setSelectedTags((currentTags) =>
+      currentTags.includes(tag)
+        ? currentTags.filter((value) => value !== tag)
+        : [...currentTags, tag],
+    );
   };
 
-  const clearTags = () => {
-    startTransition(() => {
-      setSelectedTags([]);
-    });
+  const clearFilters = () => {
+    setSelectedTags([]);
+    setSelectedCategory("all");
   };
 
   return (
@@ -68,9 +68,11 @@ const ProjectCollection = ({
         <ProjectFilters
           availableTags={projectTags}
           selectedTags={selectedTags}
+          selectedCategory={selectedCategory}
           countsByTag={countsByTag}
           onToggleTag={toggleTag}
-          onClearTags={clearTags}
+          onSelectCategory={setSelectedCategory}
+          onClearFilters={clearFilters}
           totalCount={items.length}
           visibleCount={filteredItems.length}
         />

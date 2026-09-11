@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RiMailSendLine } from "react-icons/ri";
+import { RiArrowRightUpLine, RiMailSendLine } from "react-icons/ri";
 import emailjs from "@emailjs/browser";
 import PageHeader from "../components/ui/PageHeader";
 import { contactContent } from "../content/siteContent";
@@ -70,188 +70,151 @@ const Contact = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 sm:space-y-10">
       <PageHeader
         eyebrow="Contact"
         title={contactContent.title}
         description={contactContent.subtitle}
       />
 
-      <section className="grid gap-4 lg:grid-cols-3">
-        <article className="lg:col-span-2 rounded-[2rem] border border-orange-400/30 bg-black/25 p-6 backdrop-blur-xl sm:p-8">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
-            <div className="max-w-xl space-y-3">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-400/36 bg-orange-400/12">
-                <RiMailSendLine className="text-2xl text-orange-100" />
-              </div>
-              <div className="space-y-2">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
-                  Direct Contact
-                </p>
-                <h2 className="text-2xl font-semibold text-white sm:text-3xl">
-                  Reach Out
-                </h2>
-              </div>
-              <p className="text-sm leading-7 text-slate-300 sm:text-base">
-                Email form, direct email, and phone contact are all available here.
-              </p>
-            </div>
+      <section className="grid gap-10 border-t border-white/10 pt-8 sm:pt-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+        <article className="space-y-8">
+          <div className="space-y-3">
+            <RiMailSendLine className="text-3xl text-orange-200" aria-hidden="true" />
+            <h2 className="text-2xl font-semibold text-white">Reach Out</h2>
+            <p className="max-w-sm text-base leading-7 text-slate-300">
+              Email form, direct email, and phone contact are all available here.
+            </p>
+          </div>
 
-            <div className="grid w-full gap-3 sm:max-w-sm">
-              <div className="rounded-3xl border border-orange-400/24 bg-black/25 p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                  Email
-                </p>
+          <dl className="space-y-5">
+            <div>
+              <dt className="text-sm font-medium text-slate-400">Email</dt>
+              <dd className="mt-1.5">
                 <a
                   href={`mailto:${contactContent.email}`}
-                  className="mt-2 block break-all text-base font-medium text-white transition hover:text-orange-100"
+                  className="break-all text-lg font-medium text-orange-200 underline decoration-orange-300/30 underline-offset-4 transition hover:text-orange-100 hover:decoration-orange-100"
                 >
                   {contactContent.email}
                 </a>
-              </div>
-              <div className="rounded-3xl border border-orange-400/24 bg-black/25 p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                  Phone
-                </p>
-                <p className="mt-2 text-base font-medium text-white">
-                  {contactContent.phone}
-                </p>
-              </div>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-sm font-medium text-slate-400">Phone</dt>
+              <dd className="mt-1.5 text-lg font-medium text-white">
+                {contactContent.phone}
+              </dd>
+            </div>
+          </dl>
+
+          <div className="border-t border-white/10 pt-6">
+            <h3 className="text-base font-semibold text-white">Social Profiles</h3>
+            <div className="mt-3 divide-y divide-white/10">
+              {contactContent.socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 py-3.5 text-slate-300 transition hover:text-orange-100"
+                >
+                  <social.icon className="shrink-0 text-2xl" aria-hidden="true" />
+                  <span className="flex-1 text-base font-medium">{social.name}</span>
+                  <RiArrowRightUpLine
+                    className="shrink-0 text-lg text-slate-500 transition group-hover:text-orange-200"
+                    aria-hidden="true"
+                  />
+                </a>
+              ))}
             </div>
           </div>
         </article>
 
-        <article className="rounded-[2rem] border border-orange-400/30 bg-black/25 p-6 backdrop-blur-xl">
-          <div className="space-y-2">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
-              Social
-            </p>
-            <h2 className="text-2xl font-semibold text-white">Profiles</h2>
-          </div>
+        <div className="space-y-6 border-t border-white/10 pt-8 lg:border-t-0 lg:pt-0">
+          <h2 className="text-2xl font-semibold text-white">Send a Message</h2>
 
-          <div className="mt-5 space-y-3">
-            {contactContent.socials.map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 rounded-3xl border border-orange-400/22 bg-black/20 px-4 py-4 transition hover:border-orange-300/42 hover:bg-orange-400/[0.08]"
-              >
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-orange-400/24 bg-black/25">
-                  <social.icon className="text-2xl text-slate-300 transition group-hover:text-orange-100" />
-                </div>
-                <span className="text-sm font-semibold text-slate-200 transition group-hover:text-white">
-                  {social.name}
-                </span>
-              </a>
-            ))}
-          </div>
-        </article>
-      </section>
-
-      <section className="rounded-[2rem] border border-orange-400/30 bg-black/25 p-6 backdrop-blur-xl sm:p-8">
-        <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_240px]">
-          <div className="space-y-5">
-            <div className="space-y-2">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
-                Message
-              </p>
-              <h2 className="text-2xl font-semibold text-white sm:text-3xl">
-                Send a Message
-              </h2>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-2 block text-sm font-medium text-slate-400"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full rounded-2xl border border-orange-400/22 bg-black/25 px-4 py-3 text-white outline-none transition focus:border-orange-300/55 focus:bg-black/35"
-                    placeholder="Steve"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="mb-2 block text-sm font-medium text-slate-400"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full rounded-2xl border border-orange-400/22 bg-black/25 px-4 py-3 text-white outline-none transition focus:border-orange-300/55 focus:bg-black/35"
-                    placeholder="lgj@lgjrkt.com"
-                  />
-                </div>
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="mb-2 block text-sm font-medium text-slate-300"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-white outline-none transition focus:border-orange-300/70 focus:bg-white/[0.05] focus:ring-2 focus:ring-orange-300/15"
+                  placeholder="Steve"
+                />
               </div>
 
               <div>
                 <label
-                  htmlFor="message"
-                  className="mb-2 block text-sm font-medium text-slate-400"
+                  htmlFor="email"
+                  className="mb-2 block text-sm font-medium text-slate-300"
                 >
-                  Message
+                  Email
                 </label>
-                <textarea
-                  id="message"
-                  rows="6"
-                  value={form.message}
+                <input
+                  type="email"
+                  id="email"
+                  value={form.email}
                   onChange={handleChange}
                   required
-                  className="w-full resize-none rounded-2xl border border-orange-400/22 bg-black/25 px-4 py-3 text-white outline-none transition focus:border-orange-300/55 focus:bg-black/35"
-                  placeholder="Hello! I'd like to discuss a project..."
+                  className="w-full rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-white outline-none transition focus:border-orange-300/70 focus:bg-white/[0.05] focus:ring-2 focus:ring-orange-300/15"
+                  placeholder="lgj@lgjrkt.com"
                 />
               </div>
-
-              {status.message ? (
-                <p
-                  className={`rounded-2xl border px-4 py-3 text-sm ${
-                    status.type === "success"
-                      ? "border-emerald-400/20 bg-emerald-400/10 text-emerald-100"
-                      : "border-orange-400/20 bg-orange-400/10 text-orange-100"
-                  }`}
-                >
-                  {status.message}
-                </p>
-              ) : null}
-
-              <button
-                type="submit"
-                disabled={isSending}
-                className="inline-flex w-full items-center justify-center rounded-2xl bg-orange-500 px-5 py-4 text-sm font-semibold text-white transition hover:bg-orange-400 disabled:cursor-not-allowed disabled:opacity-60 md:w-auto md:min-w-[220px]"
-              >
-                {isSending ? "Sending..." : "Send Message"}
-              </button>
-            </form>
-          </div>
-
-          <aside className="rounded-3xl border border-orange-400/24 bg-black/20 p-5">
-            <div className="space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                Delivery Note
-              </p>
-              <p className="text-sm leading-7 text-slate-300">
-                Messages are sent through EmailJS. If the form is unavailable, use the
-                direct email address above.
-              </p>
             </div>
-          </aside>
+
+            <div>
+              <label
+                htmlFor="message"
+                className="mb-2 block text-sm font-medium text-slate-300"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows="6"
+                value={form.message}
+                onChange={handleChange}
+                required
+                className="w-full resize-y rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-white outline-none transition focus:border-orange-300/70 focus:bg-white/[0.05] focus:ring-2 focus:ring-orange-300/15"
+                placeholder="Hello! I'd like to discuss a project..."
+              />
+            </div>
+
+            {status.message ? (
+              <p
+                role="status"
+                className={`rounded-xl border px-4 py-3 text-sm ${
+                  status.type === "success"
+                    ? "border-emerald-400/20 bg-emerald-400/10 text-emerald-100"
+                    : "border-orange-400/20 bg-orange-400/10 text-orange-100"
+                }`}
+              >
+                {status.message}
+              </p>
+            ) : null}
+
+            <button
+              type="submit"
+              disabled={isSending}
+              className="inline-flex w-full items-center justify-center rounded-xl bg-orange-500 px-6 py-3.5 text-base font-semibold text-black transition hover:bg-orange-400 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:min-w-[180px]"
+            >
+              {isSending ? "Sending..." : "Send Message"}
+            </button>
+          </form>
+
+          <p className="text-sm leading-6 text-slate-400">
+            If the form is unavailable, please use the direct email address on this page.
+          </p>
         </div>
       </section>
     </div>

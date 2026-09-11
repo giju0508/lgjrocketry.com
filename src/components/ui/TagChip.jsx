@@ -6,10 +6,10 @@ const TagChip = ({
   count,
 }) => {
   const baseClassName =
-    "inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-[0.02em] transition-all";
+    "inline-flex items-center gap-2 rounded-full border px-3 text-xs font-medium transition-colors";
   const stateClassName = active
-    ? "border-orange-300/55 bg-orange-400/14 text-orange-50 shadow-[0_0_0_1px_rgba(251,146,60,0.18)]"
-    : "border-orange-400/24 bg-black/20 text-slate-300 hover:border-orange-300/40 hover:bg-orange-400/[0.08] hover:text-white";
+    ? "border-orange-300/45 bg-orange-400/10 text-orange-100"
+    : "border-white/10 bg-white/[0.025] text-slate-300";
 
   if (interactive) {
     return (
@@ -17,11 +17,11 @@ const TagChip = ({
         type="button"
         onClick={onClick}
         aria-pressed={active}
-        className={`${baseClassName} ${stateClassName}`}
+        className={`${baseClassName} ${stateClassName} min-h-11 py-2 hover:border-white/30 hover:bg-white/[0.06] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-300`}
       >
         <span>{children}</span>
         {typeof count === "number" ? (
-          <span className="rounded-full bg-black/35 px-1.5 py-0.5 text-[10px] text-slate-300">
+          <span className="text-xs tabular-nums opacity-70">
             {count}
           </span>
         ) : null}
@@ -30,10 +30,10 @@ const TagChip = ({
   }
 
   return (
-    <span className={`${baseClassName} ${stateClassName}`}>
+    <span className={`${baseClassName} ${stateClassName} py-1.5`}>
       <span>{children}</span>
       {typeof count === "number" ? (
-        <span className="rounded-full bg-black/35 px-1.5 py-0.5 text-[10px] text-slate-300">
+        <span className="text-xs tabular-nums opacity-70">
           {count}
         </span>
       ) : null}

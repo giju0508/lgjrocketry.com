@@ -36,6 +36,13 @@
   button {
     @apply outline-none;
   }
+
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid #fdba74;
+    outline-offset: 4px;
+  }
 }
 
 @layer components {
@@ -77,6 +84,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
   .progressive-image-preview,
   .progressive-image-full {
     transition: none;

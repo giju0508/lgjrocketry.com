@@ -13,20 +13,21 @@ const Home = () => {
     .filter(Boolean);
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-10 sm:space-y-16">
       <Hero />
 
       <section className="space-y-6">
         <PageHeader
           eyebrow="Projects"
           title="Key Projects"
+          as="h2"
           description="주요 프로젝트를 먼저 확인해보세요."
           action={
             <Link
               to="/projects"
-              className="inline-flex items-center justify-center rounded-full border border-orange-400/30 bg-black/25 px-5 py-3 text-sm font-semibold text-orange-100 transition hover:border-orange-300/55 hover:bg-orange-400/[0.12]"
+              className="inline-flex min-h-11 items-center justify-center gap-2 text-sm font-medium text-orange-200 transition hover:text-orange-100"
             >
-              View All Projects
+              View all projects <span aria-hidden="true">↗</span>
             </Link>
           }
         />
