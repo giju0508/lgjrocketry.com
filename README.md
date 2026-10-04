@@ -1,8 +1,10 @@
 # LGJ Rocketry
 
-## Projects soundtrack
+## Keyboard soundtrack
 
-Add an audio file you have permission to publish at `src/assets/projects-soundtrack.mp3` (OGG, WAV and M4A are also supported), then rebuild. Clicking a Projects link opens the audio player and requests playback. Playback continues during page navigation; the native controls pause playback, and closing the player stops it. Modified clicks that open another tab do not start music in the current tab.
+Type `djhrnyhorse` anywhere on the site outside an input, text area or editable field to open the audio player and start the soundtrack. The sequence is case-insensitive and ignores keyboard shortcuts, held keys and IME composition. Typing it again restarts the track. Playback continues during page navigation; the native controls pause playback, and closing the player stops it. Projects links only navigate.
+
+The audio file is `src/assets/projects-soundtrack.mp3` (OGG, WAV and M4A are also supported). Replace it with an audio file you have permission to publish, then rebuild.
 
 The player stays disabled when no soundtrack file is present. Browsers that block automatic playback can use the player's play button.
 

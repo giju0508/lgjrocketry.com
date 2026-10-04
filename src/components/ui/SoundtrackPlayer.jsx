@@ -4,19 +4,19 @@ const soundtrackFiles = import.meta.glob(
 );
 const soundtrackSource = Object.values(soundtrackFiles)[0];
 
-const ProjectsMusicPlayer = ({ onClose }) => {
+const SoundtrackPlayer = ({ onClose }) => {
   if (!soundtrackSource) {
     return null;
   }
 
   return (
     <aside
-      aria-label="Projects soundtrack"
+      aria-label="DJ HRNYHORSE soundtrack"
       className="fixed bottom-4 right-4 z-40 w-[360px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-white/15 bg-[#040506] shadow-2xl shadow-black/50"
     >
       <div className="flex items-center justify-between gap-3 px-4 py-2">
         <span className="text-xs font-medium text-orange-200">
-          Projects soundtrack
+          DJ HRNYHORSE
         </span>
         <button
           type="button"
@@ -30,7 +30,7 @@ const ProjectsMusicPlayer = ({ onClose }) => {
       <div className="px-3 pb-3">
         <audio
           src={soundtrackSource}
-          aria-label="Projects soundtrack"
+          aria-label="DJ HRNYHORSE soundtrack"
           controls
           autoPlay
           preload="metadata"
@@ -41,4 +41,4 @@ const ProjectsMusicPlayer = ({ onClose }) => {
   );
 };
 
-export default ProjectsMusicPlayer;
+export default SoundtrackPlayer;

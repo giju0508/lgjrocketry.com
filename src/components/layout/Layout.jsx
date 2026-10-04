@@ -1,37 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import ProjectsMusicPlayer from "../ui/ProjectsMusicPlayer";
+import SoundtrackPlayer from "../ui/SoundtrackPlayer";
 
 const Layout = ({ children }) => {
-  const [isMusicOpen, setIsMusicOpen] = useState(false);
+  const [musicSession, setMusicSession] = useState(0);
 
-  const handleProjectsClick = (event) => {
-    if (
-      event.defaultPrevented ||
-      event.button !== 0 ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey ||
-      !(event.target instanceof Element)
-    ) {
-      return;
-    }
+  useEffect(() => {
+    const keyword = "djhrnyhorse";
+    let typedKeys = "";
 
-    const link = event.target.closest('a[href="/projects"]');
+    const handleKeyDown = (event) => {
+      const isEditing =
+        event.target instanceof Element &&
+        event.target.closest(
+          'input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"]',
+        );
 
-    if (
-      link &&
-      !link.hasAttribute("download") &&
-      (!link.target || link.target === "_self")
-    ) {
-      setIsMusicOpen(true);
-    }
-  };
+      if (
+        event.defaultPrevented ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.altKey ||
+        event.isComposing ||
+        isEditing
+      ) {
+        typedKeys = "";
+        return;
+      }
+
+      if (event.repeat || event.key.length !== 1) {
+        return;
+      }
+
+      typedKeys = (typedKeys + event.key.toLowerCase()).slice(-keyword.length);
+
+      if (typedKeys === keyword) {
+        typedKeys = "";
+        setMusicSession((session) => session + 1);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
-    <div className="min-h-screen text-white" onClickCapture={handleProjectsClick}>
+    <div className="min-h-screen text-white">
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[#040506]" />
         <div className="absolute left-[-8%] top-[-7rem] h-72 w-72 rounded-full bg-orange-500/12 blur-3xl" />
@@ -47,8 +62,11 @@ const Layout = ({ children }) => {
 
       <Footer />
 
-      {isMusicOpen && (
-        <ProjectsMusicPlayer onClose={() => setIsMusicOpen(false)} />
+      {musicSession > 0 && (
+        <SoundtrackPlayer
+          key={musicSession}
+          onClose={() => setMusicSession(0)}
+        />
       )}
     </div>
   );
