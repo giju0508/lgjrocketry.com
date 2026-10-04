@@ -1,5 +1,11 @@
 # LGJ Rocketry
 
+## Projects soundtrack
+
+Add an audio file you have permission to publish at `src/assets/projects-soundtrack.mp3` (OGG, WAV and M4A are also supported), then rebuild. Clicking a Projects link opens the audio player and requests playback. Playback continues during page navigation; the native controls pause playback, and closing the player stops it. Modified clicks that open another tab do not start music in the current tab.
+
+The player stays disabled when no soundtrack file is present. Browsers that block automatic playback can use the player's play button.
+
 ## Image optimization
 
 Run `npm install`, then `npm run dev` or `npm run build`. Both commands generate responsive WebP images with Sharp before Vite starts. Use Node.js 20.19+ or 22.12+.
