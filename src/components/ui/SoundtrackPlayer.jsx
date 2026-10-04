@@ -4,6 +4,12 @@ const soundtrackFiles = import.meta.glob(
 );
 const soundtrackSource = Object.values(soundtrackFiles)[0];
 
+const setInitialVolume = (audio) => {
+  if (audio) {
+    audio.volume = 0.3;
+  }
+};
+
 const SoundtrackPlayer = ({ onClose }) => {
   if (!soundtrackSource) {
     return null;
@@ -29,6 +35,7 @@ const SoundtrackPlayer = ({ onClose }) => {
       </div>
       <div className="px-3 pb-3">
         <audio
+          ref={setInitialVolume}
           src={soundtrackSource}
           aria-label="DJ HRNYHORSE soundtrack"
           controls
